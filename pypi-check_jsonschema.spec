@@ -4,7 +4,7 @@
 #
 Name     : pypi-check_jsonschema
 Version  : 0.19.2
-Release  : 1
+Release  : 2
 URL      : https://files.pythonhosted.org/packages/c7/f9/c956f3489bff54ffa509787fa6d332ac34f30c95d9cb4c69cf050c133cd6/check-jsonschema-0.19.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/c7/f9/c956f3489bff54ffa509787fa6d332ac34f30c95d9cb4c69cf050c133cd6/check-jsonschema-0.19.2.tar.gz
 Summary  : A jsonschema CLI and pre-commit hook
@@ -19,6 +19,9 @@ BuildRequires : pypi(click)
 BuildRequires : pypi(jsonschema)
 BuildRequires : pypi(requests)
 BuildRequires : pypi(ruamel.yaml)
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 [![pypi version](https://img.shields.io/pypi/v/check-jsonschema.svg)](https://pypi.org/project/check-jsonschema/)
@@ -79,15 +82,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1669623577
+export SOURCE_DATE_EPOCH=1672262563
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -104,7 +107,10 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema
+cp %{_builddir}/check-jsonschema-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema/24005878468a9906f3f1e94a33a0b85679bcf2fe || :
 cp %{_builddir}/check-jsonschema-%{version}/src/check_jsonschema/builtin_schemas/vendor/LICENSE.azure-pipelines %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema/03e1fe6fd0bc6d73c3cd3370d5f0a73c4fcb60d6 || :
+cp %{_builddir}/check-jsonschema-%{version}/src/check_jsonschema/builtin_schemas/vendor/LICENSE.gitlab %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema/8f6011197d56095a01b8fd90f93c75ad1eb171b7 || :
+cp %{_builddir}/check-jsonschema-%{version}/src/check_jsonschema/builtin_schemas/vendor/LICENSE.readthedocs %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema/e25ae60dff530c1ed4ca76836a4fb41b7e680274 || :
 cp %{_builddir}/check-jsonschema-%{version}/src/check_jsonschema/builtin_schemas/vendor/LICENSE.schemastore %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema/2b8b815229aa8a61e483fb4ba0588b8b6c491890 || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
@@ -130,7 +136,10 @@ popd
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/pypi-check_jsonschema/03e1fe6fd0bc6d73c3cd3370d5f0a73c4fcb60d6
+/usr/share/package-licenses/pypi-check_jsonschema/24005878468a9906f3f1e94a33a0b85679bcf2fe
 /usr/share/package-licenses/pypi-check_jsonschema/2b8b815229aa8a61e483fb4ba0588b8b6c491890
+/usr/share/package-licenses/pypi-check_jsonschema/8f6011197d56095a01b8fd90f93c75ad1eb171b7
+/usr/share/package-licenses/pypi-check_jsonschema/e25ae60dff530c1ed4ca76836a4fb41b7e680274
 
 %files python
 %defattr(-,root,root,-)
