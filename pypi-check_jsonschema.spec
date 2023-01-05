@@ -4,7 +4,7 @@
 #
 Name     : pypi-check_jsonschema
 Version  : 0.20.0
-Release  : 3
+Release  : 4
 URL      : https://files.pythonhosted.org/packages/e9/45/644f842056970c3ff3babbe99ca4052b165d4d61a6a5ab989ef8752ba2b5/check-jsonschema-0.20.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/e9/45/644f842056970c3ff3babbe99ca4052b165d4d61a6a5ab989ef8752ba2b5/check-jsonschema-0.20.0.tar.gz
 Summary  : A jsonschema CLI and pre-commit hook
