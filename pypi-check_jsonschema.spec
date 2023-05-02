@@ -5,7 +5,7 @@
 #
 Name     : pypi-check_jsonschema
 Version  : 0.22.0
-Release  : 7
+Release  : 8
 URL      : https://files.pythonhosted.org/packages/91/98/eefa061295a35dba06e898e1afd36ae355979a75bff512b9d6a83f02734d/check-jsonschema-0.22.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/91/98/eefa061295a35dba06e898e1afd36ae355979a75bff512b9d6a83f02734d/check-jsonschema-0.22.0.tar.gz
 Summary  : A jsonschema CLI and pre-commit hook
@@ -83,7 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683049186
+export SOURCE_DATE_EPOCH=1683049974
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -94,6 +94,7 @@ export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -f
 export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 pypi-dep-fix.py . ruamel-yaml
+pypi-dep-fix.py . ruamel.yaml
 python3 setup.py build
 
 pushd ../buildavx2/
@@ -103,6 +104,7 @@ export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
 pypi-dep-fix.py . ruamel-yaml
+pypi-dep-fix.py . ruamel.yaml
 python3 setup.py build
 
 popd
@@ -118,6 +120,7 @@ cp %{_builddir}/check-jsonschema-%{version}/src/check_jsonschema/builtin_schemas
 cp %{_builddir}/check-jsonschema-%{version}/src/check_jsonschema/builtin_schemas/vendor/LICENSE.schemastore %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema/2b8b815229aa8a61e483fb4ba0588b8b6c491890 || :
 python3 -tt setup.py build  install --root=%{buildroot}
 pypi-dep-fix.py %{buildroot} ruamel-yaml
+pypi-dep-fix.py %{buildroot} ruamel.yaml
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
