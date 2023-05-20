@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-check_jsonschema
-Version  : 0.22.0
-Release  : 8
-URL      : https://files.pythonhosted.org/packages/91/98/eefa061295a35dba06e898e1afd36ae355979a75bff512b9d6a83f02734d/check-jsonschema-0.22.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/91/98/eefa061295a35dba06e898e1afd36ae355979a75bff512b9d6a83f02734d/check-jsonschema-0.22.0.tar.gz
+Version  : 0.23.0
+Release  : 9
+URL      : https://files.pythonhosted.org/packages/83/fd/5dd3df297bf0335188be8d91e25d68da8fa412764014d47026615b44c36d/check-jsonschema-0.23.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/83/fd/5dd3df297bf0335188be8d91e25d68da8fa412764014d47026615b44c36d/check-jsonschema-0.23.0.tar.gz
 Summary  : A jsonschema CLI and pre-commit hook
 Group    : Development/Tools
 License  : Apache-2.0 MIT
@@ -16,10 +16,6 @@ Requires: pypi-check_jsonschema-license = %{version}-%{release}
 Requires: pypi-check_jsonschema-python = %{version}-%{release}
 Requires: pypi-check_jsonschema-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pypi(click)
-BuildRequires : pypi(jsonschema)
-BuildRequires : pypi(requests)
-BuildRequires : pypi(ruamel.yaml)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -72,10 +68,10 @@ python3 components for the pypi-check_jsonschema package.
 
 
 %prep
-%setup -q -n check-jsonschema-0.22.0
-cd %{_builddir}/check-jsonschema-0.22.0
+%setup -q -n check-jsonschema-0.23.0
+cd %{_builddir}/check-jsonschema-0.23.0
 pushd ..
-cp -a check-jsonschema-0.22.0 buildavx2
+cp -a check-jsonschema-0.23.0 buildavx2
 popd
 
 %build
@@ -83,7 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683049974
+export SOURCE_DATE_EPOCH=1684607703
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
