@@ -1,5 +1,5 @@
 PKG_NAME := pypi-check_jsonschema
-URL = https://files.pythonhosted.org/packages/83/fd/5dd3df297bf0335188be8d91e25d68da8fa412764014d47026615b44c36d/check-jsonschema-0.23.0.tar.gz
+URL = https://files.pythonhosted.org/packages/ca/7c/c1332d40b2744edc7aa70a120902896331c8549d4e63a92629d98d91d6e2/check-jsonschema-0.23.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
