@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-check_jsonschema
-Version  : 0.23.3
-Release  : 12
-URL      : https://files.pythonhosted.org/packages/91/d7/0e031767feed17a18e38d75ff3cd255fb2257c625bc213ee8ea796d21577/check-jsonschema-0.23.3.tar.gz
-Source0  : https://files.pythonhosted.org/packages/91/d7/0e031767feed17a18e38d75ff3cd255fb2257c625bc213ee8ea796d21577/check-jsonschema-0.23.3.tar.gz
+Version  : 0.24.0
+Release  : 13
+URL      : https://files.pythonhosted.org/packages/d2/b8/cf41a85328f98eb619433297d5bb5a32e2b1c338b751716b6279af21b23f/check-jsonschema-0.24.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/d2/b8/cf41a85328f98eb619433297d5bb5a32e2b1c338b751716b6279af21b23f/check-jsonschema-0.24.0.tar.gz
 Summary  : A jsonschema CLI and pre-commit hook
 Group    : Development/Tools
 License  : Apache-2.0 MIT
@@ -72,10 +72,10 @@ python3 components for the pypi-check_jsonschema package.
 
 
 %prep
-%setup -q -n check-jsonschema-0.23.3
-cd %{_builddir}/check-jsonschema-0.23.3
+%setup -q -n check-jsonschema-0.24.0
+cd %{_builddir}/check-jsonschema-0.24.0
 pushd ..
-cp -a check-jsonschema-0.23.3 buildavx2
+cp -a check-jsonschema-0.24.0 buildavx2
 popd
 
 %build
@@ -83,7 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1689175266
+export SOURCE_DATE_EPOCH=1691527536
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -114,6 +114,7 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema
 cp %{_builddir}/check-jsonschema-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema/24005878468a9906f3f1e94a33a0b85679bcf2fe || :
 cp %{_builddir}/check-jsonschema-%{version}/src/check_jsonschema/builtin_schemas/vendor/LICENSE.azure-pipelines %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema/03e1fe6fd0bc6d73c3cd3370d5f0a73c4fcb60d6 || :
+cp %{_builddir}/check-jsonschema-%{version}/src/check_jsonschema/builtin_schemas/vendor/LICENSE.bitbucket-pipelines %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema/2c6c10e45965bfdb418679514d000a3412dd984c || :
 cp %{_builddir}/check-jsonschema-%{version}/src/check_jsonschema/builtin_schemas/vendor/LICENSE.buildkite %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema/3fe44e366d6da1a816d9198bd496389b9d895781 || :
 cp %{_builddir}/check-jsonschema-%{version}/src/check_jsonschema/builtin_schemas/vendor/LICENSE.gitlab %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema/8f6011197d56095a01b8fd90f93c75ad1eb171b7 || :
 cp %{_builddir}/check-jsonschema-%{version}/src/check_jsonschema/builtin_schemas/vendor/LICENSE.readthedocs %{buildroot}/usr/share/package-licenses/pypi-check_jsonschema/e25ae60dff530c1ed4ca76836a4fb41b7e680274 || :
@@ -146,6 +147,7 @@ popd
 /usr/share/package-licenses/pypi-check_jsonschema/03e1fe6fd0bc6d73c3cd3370d5f0a73c4fcb60d6
 /usr/share/package-licenses/pypi-check_jsonschema/24005878468a9906f3f1e94a33a0b85679bcf2fe
 /usr/share/package-licenses/pypi-check_jsonschema/2b8b815229aa8a61e483fb4ba0588b8b6c491890
+/usr/share/package-licenses/pypi-check_jsonschema/2c6c10e45965bfdb418679514d000a3412dd984c
 /usr/share/package-licenses/pypi-check_jsonschema/3fe44e366d6da1a816d9198bd496389b9d895781
 /usr/share/package-licenses/pypi-check_jsonschema/8f6011197d56095a01b8fd90f93c75ad1eb171b7
 /usr/share/package-licenses/pypi-check_jsonschema/e25ae60dff530c1ed4ca76836a4fb41b7e680274
