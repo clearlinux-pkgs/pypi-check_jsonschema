@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-check_jsonschema
-Version  : 0.24.0
-Release  : 13
-URL      : https://files.pythonhosted.org/packages/d2/b8/cf41a85328f98eb619433297d5bb5a32e2b1c338b751716b6279af21b23f/check-jsonschema-0.24.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/d2/b8/cf41a85328f98eb619433297d5bb5a32e2b1c338b751716b6279af21b23f/check-jsonschema-0.24.0.tar.gz
+Version  : 0.24.1
+Release  : 14
+URL      : https://files.pythonhosted.org/packages/32/12/f8a33b13e2e6167de4ff5df76648f7a058097a85293bd4b402f486f6e59f/check-jsonschema-0.24.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/32/12/f8a33b13e2e6167de4ff5df76648f7a058097a85293bd4b402f486f6e59f/check-jsonschema-0.24.1.tar.gz
 Summary  : A jsonschema CLI and pre-commit hook
 Group    : Development/Tools
 License  : Apache-2.0 MIT
@@ -72,10 +72,10 @@ python3 components for the pypi-check_jsonschema package.
 
 
 %prep
-%setup -q -n check-jsonschema-0.24.0
-cd %{_builddir}/check-jsonschema-0.24.0
+%setup -q -n check-jsonschema-0.24.1
+cd %{_builddir}/check-jsonschema-0.24.1
 pushd ..
-cp -a check-jsonschema-0.24.0 buildavx2
+cp -a check-jsonschema-0.24.1 buildavx2
 popd
 
 %build
@@ -83,7 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1691527536
+export SOURCE_DATE_EPOCH=1691713639
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
