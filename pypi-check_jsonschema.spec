@@ -7,7 +7,7 @@
 #
 Name     : pypi-check_jsonschema
 Version  : 0.27.3
-Release  : 18
+Release  : 19
 URL      : https://files.pythonhosted.org/packages/c6/60/b7aa1896f968160d81351fd484e150f4a28c944f6205c249be237e857809/check-jsonschema-0.27.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/c6/60/b7aa1896f968160d81351fd484e150f4a28c944f6205c249be237e857809/check-jsonschema-0.27.3.tar.gz
 Summary  : A jsonschema CLI and pre-commit hook
@@ -92,7 +92,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1701898037
+export SOURCE_DATE_EPOCH=1702066124
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
